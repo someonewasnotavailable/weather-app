@@ -1,0 +1,587 @@
+@font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DM_Sans/static/DMSans-Light.ttf');
+    font-display: swap;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    src: url(./fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf);
+    font-display: swap;
+    font-weight: bold;
+}
+
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'DM Sans',Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root{
+    --bgOfPage: rgb(2, 1, 43);
+    --unitsBg: rgb(47, 47, 73);
+    --transparent: rgba(0, 0, 0, 0);
+    --darkbluepurple: rgb(37, 37, 63);
+    --darkwhite: rgb(194, 194, 194);
+    --greyBorder: rgb(59, 58, 90);
+    --Bricolage-Grotesque : 'Bricolage Grotesque';
+    --DM-Sans: 'DM Sans'
+}
+
+.wholeBody{
+    background-color: var(--bgOfPage);
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+.logo{
+    display: flex;
+    padding: 40px;
+    padding-bottom: 20px;
+}
+
+.logo img{
+    margin-right: auto;
+}
+
+#Units{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 12px;
+}
+
+.units{
+    background-color: var(--unitsBg) !important;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.units p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.units.clicked{
+    outline: 2px solid white;
+}
+
+#Units button{
+    background-color: var(--transparent);
+    border: none;
+    color: white;
+    padding: 10px;
+    /* padding-left: 3px;
+    padding-right: 3px; */
+    font-size: 16px;
+}
+
+#Units button:hover{
+    background-color: var(--unitsBg);
+}
+
+.clickablen:hover{
+    background-color: var(--transparent) !important;
+}
+
+.unitvalues{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 48px;
+    right: 0px;
+    background-color: var(--darkbluepurple);
+    border-radius: 14px;
+}
+
+.unitvalues button{
+    text-align: start;
+    width: 190px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.unitvalues.hidden{
+    display: none;
+}
+
+.imperial{
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.imperial.impclicked{
+    outline: 2px solid white;
+    background-color: var(--unitsBg) !important;
+}
+
+.clickable{
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.clickable.clicked{
+    background-color:var(--unitsBg) !important;
+}
+
+.clickablen{
+    font-size: 12px !important;
+    color: var(--darkwhite) !important;
+    padding: 4px !important;
+    margin-left: 10px !important;
+}
+
+.whiteline{
+    border: 1px solid rgb(59, 59, 87);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headerText{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Bricolage Grotesque';
+    margin-bottom: 40px;
+}
+
+.headerText.hidden{
+    display: none;
+}
+
+.search{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.search input{
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--darkbluepurple);
+    padding-left: 15px;
+    color: white;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 16px !important;
+}
+
+.search input::placeholder{
+    color: white;
+    font-size: 16px;
+    background: url(./images/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left;
+    text-indent: 1.625em;
+}
+
+.search input:focus{
+    border: none;
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.searchbtn{
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(70, 81, 217);
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+}
+
+.searchbtn:focus{
+    border: none;
+    outline-offset: 3px;
+    outline: 2px solid rgb(77, 91, 198);
+}
+
+.searchbtn:hover{
+    background-color: rgb(44, 27, 157);
+}
+
+.search.hidden{
+    display: none;
+}
+
+.weatherInfo{
+    margin-top: 30px;
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 75px;
+}
+
+.forecastleft{
+    width: 801px;
+}
+
+.imgtemperature{
+    width: 800px;
+    background: url(./images/bg-today-large.svg);
+    background-repeat: no-repeat;
+    height: 286px;
+    overflow: hidden;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.locationTime{
+    margin-right: auto;
+}
+
+.locationText{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.locationDate{
+    font-size: 12px;
+}
+
+.imgTemperatureTemperature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgTemperatureTemperature img{
+    width: 100px;
+    height: 100px;
+}
+
+.temperaturetext{
+    font-size: 80px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.moreinfofourboxes{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.fourbox{
+    width: 120px;
+    height: 90px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-left: 15px;
+    flex-direction: column;
+    gap: 14px;
+    background-color: var(--darkbluepurple);
+    border-radius: 8px;
+    border: 1px solid var(--greyBorder);
+}
+
+.firstfourbox{
+    font-size: 14px;
+    color: var(--darkwhite);
+}
+
+.secondfourbox{
+    font-size: 24px;
+}
+
+.dailyForecast{
+    margin-top: 30px;
+    color: white;
+}
+
+.dailyForecast p{
+    margin-bottom: 10px;
+}
+
+.sevenboxCont{
+    display: flex;
+    gap: 10px;
+}
+
+.sevenbox{
+    width: 75.714px;
+    height: 120px;
+    background-color: var(--darkbluepurple);
+    border-radius: 7px;
+    border: 1px solid var(--greyBorder);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sevenbox img{
+    width: 40px;
+    height: 40px;
+}
+
+.sevenboxdiv{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: 30px;
+}
+
+.sevenboxdiv p{
+    font-size: 12px;
+}
+
+.sevenboxdiv p:first-child{
+    margin-right: auto;
+}
+
+.forecastright{
+    height: 580px;
+    border-radius: 20px;
+    background-color: var(--darkbluepurple);
+    color: white;
+    overflow: hidden;
+    width: 600px;
+    padding: 15px 30px;
+}
+
+.buttonplustext2{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    align-items: end;
+    position: relative;
+}
+
+.date button{
+    width: 120px;
+    background-color: var(--unitsBg);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 11px;
+    text-align: start;
+    text-indent: 10px;
+    border-radius: 8px;
+}
+
+.date button:focus{
+    border: none;
+}
+
+.defaultDate{
+    padding: 6px;
+    width: 100px !important;
+    margin-top: -4px;
+}
+
+.changedDate{
+    width: 200px !important;
+    background-color: var(--darkbluepurple) !important;
+    padding: 6px;
+}
+
+.changedDate.clickedcd{
+    background-color: var(--unitsBg) !important;
+}
+
+.changedDate:hover{
+    background-color: var(--unitsBg) !important;
+}
+
+.selectDate{
+    display: flex;
+    background-color: var(--darkbluepurple);
+    flex-direction: column;
+    position: absolute;
+    z-index: 3;
+    border-radius: 12px;
+    top: 30px;
+    padding: 4px;
+    border: 1px solid var(--greyBorder);
+}
+
+.selectDate.hidden{
+    display: none;
+}
+
+.timeandTemp{
+    margin-top: 20px;
+    height: 500px;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--darkbluepurple) var(--transparent);
+}
+
+.timeandTemp::-webkit-scrollbar{
+    width: 8px;
+}
+
+.timeandTemp::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.timeandTemp::-webkit-scrollbar-thumb {
+    background: var(--darkbluepurple);
+    border-radius: 4px;
+}
+
+.timeandTemp::-webkit-scrollbar-button {
+    display: none;
+}
+
+.timeandTempboxes{
+    height: 52px;
+    background-color: var(--unitsBg);
+    width: 442px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.timeandTempboxes img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.timeandTempboxes p:last-child{
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.nosearch{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nosearch.hidden{
+    display: none;
+}
+
+.networkissues{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin-top: 60px;
+}
+
+.networkissues img{
+    width: 40px;
+    height: 40px;
+}
+
+.networkissues p:nth-child(2){
+    font-size: 40px;
+    font-weight: bold;
+    font-family: var(--Bricolage-Grotesque)
+}
+
+.networkissues p:nth-child(3){
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.networkissues button{
+    background-color: var(--darkbluepurple);
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+}
+
+.networkissues button img{
+    width: 18px;
+    margin-top: 2px;
+    height: 18px;
+}
+
+.networkissues.hidden{
+    display: none;
+}
+
+main.hidden{
+    display: none;
+}
+
+.weatherInfo.hidden{
+    display: none;
+}
+
+.sww{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.retryBtn{
+    cursor: pointer;
+}
+
+.retryBtn:active{
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.retrySpinner{
+    transform: scale(1);
+}
+
+.retrySpinner.spin{
+    animation: spin .9s ease 0s infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

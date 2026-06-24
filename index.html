@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="wholeBody">
+        <header>
+            <div class="logo">
+                <img src="./images/logo.svg" alt="">
+                <div id="Units">
+                    <button class="units" onclick="hideMenu()"><p><img src="./images/icon-units.svg" alt=""> Units <img src="./images/icon-dropdown.svg" alt=""></p></button>
+                    <div class="unitvalues hidden">
+                        <button class="imperial" onclick="imperialClicked()"> Switch to Imperial </button>
+                        <button class="clickablen" disabled> Temperature </button>
+                        <button class="clickable temperature"> Celcuis (°C) </button>
+                        <button class="clickable temperature"> Fahrenheit (°F) </button>
+                        <div class="whiteline"></div>
+                        <button class="clickablen" disabled> Wind Speed </button>
+                        <button class="clickable windspeed"> km/h </button>
+                        <button class="clickable windspeed"> mph </button>
+                        <div class="whiteline"></div>
+                        <button class="clickablen" disabled> Precipitation </button>
+                        <button class="clickable precipitation"> Millimeters (mm) </button>
+                        <button class="clickable precipitation"> Inches (in) </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <p class="headerText">How's the sky looking today?</p>
+            <div class="search">
+                <form class="searchForm">
+                    <input type="text" placeholder="Search for a place..." class="input">
+                    <button class="searchbtn" onclick="searchRun()">Search</button>
+                </form>
+            </div>
+            <section class="weatherInfo">
+                <div class="forecastleft">
+                    <div class="imgtemperature">
+                        <!-- <img src="./images/bg-today-large.svg" alt=""> -->
+                        <div class="locationTime">
+                            <p class="locationText">Berlin, Germany</p>
+                            <p class="locationDate">Tuesday, Aug 5, 2025</p>
+                        </div>
+                        <div class="imgTemperatureTemperature">
+                            <img src="./images/0.webp" alt="">
+                            <p class="temperaturetext">68°F</p>
+                        </div>
+                    </div>
+                    <div class="moreinfofourboxes">
+                        <div class="fourbox">
+                            <p class="firstfourbox">Feels Like</p>
+                            <p class="secondfourbox">18°</p>
+                        </div>
+                        <div class="fourbox">
+                            <p class="firstfourbox">Humidity</p>
+                            <p class="secondfourbox">46%</p>
+                        </div>
+                        <div class="fourbox">
+                            <p class="firstfourbox">Wind</p>
+                            <p class="secondfourbox">14 km/h</p>
+                        </div>
+                        <div class="fourbox">
+                            <p class="firstfourbox">Precipitation</p>
+                            <p class="secondfourbox">0 mm</p>
+                        </div>
+                    </div>
+                    <div class="dailyForecast">
+                        <p>Daily forecast</p>
+                        <div class="sevenboxCont">
+                            <div class="sevenbox">
+                                <p class="date1">Tue</p>
+                                <img src="./images/61.webp" alt="rain-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp1">20°</p>
+                                    <p class="mintemp1">14°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox">
+                                <p class="date2">Wed</p>
+                                <img src="./images/51.webp" alt="drizzling-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp2">21°</p>
+                                    <p class="mintemp2">15°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox thathir">
+                                <p class="date3">Thu</p>
+                                <img src="./images/0.webp" alt="sunny-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp3">24°</p>
+                                    <p class="mintemp3">14°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox">
+                                <p class="date4">Fri</p>
+                                <img src="./images/95.webp" alt="thunder-storm-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp4">25°</p>
+                                    <p class="mintemp4">13°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox">
+                                <p class="date5">Sat</p>
+                                <img src="./images/1.webp" alt="storm-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp5">21°</p>
+                                    <p class="mintemp5">15°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox">
+                                <p class="date6">Sun</p>
+                                <img src="./images/71.webp" alt="snow-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp6">25°</p>
+                                    <p class="mintemp6">16°</p>
+                                </div>
+                            </div>
+                            <div class="sevenbox">
+                                <p class="date7">Mon</p>
+                                <img src="./images/45.webp" alt="fog-img">
+                                <div class="sevenboxdiv">
+                                    <p class="maxtemp7">24°</p>
+                                    <p class="mintemp7">15°</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forecastright">
+                    <div class="buttonplustext2">
+                        <p>Hourly forecast</p>
+                        <div name="date" class="date">
+                            <button onclick="toggleSelectDate()" class="defaultDate"> Tuesday <img src="./images/icon-dropdown.svg" alt=""></button>
+                            <div class="selectDate hidden">
+                                <button class="changedDate dayofWeek1" onclick="day1fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek2" onclick="day2fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek3" onclick="day3fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek4" onclick="day4fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek5" onclick="day5fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek6" onclick="day6fn()"> Loading... </button>
+                                <button class="changedDate dayofWeek7" onclick="day7fn()"> Loading... </button>
+                            </div>
+                        </div>
+                        <div class="timeandTemp">
+                            <!-- <div class="timeandTempboxes">
+                                <img src="./images/icon-overcast.webp" alt="">
+                                <p>3 PM</p>
+                                <p>68°</p>
+                            </div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div>
+                            <div class="timeandTempboxes"></div> -->
+                        </div>
+                    </div>
+            </section>
+            <p class="nosearch hidden">No search result found!</p>
+            <div class="networkissues hidden">
+                <img src="./images/icon-error.svg" alt="">
+                <p class="sww">Something went wrong</p>
+                <p>We couldn't connect to the server (API error). Please try again in a few moments.</p>
+                <button onclick="FillContent()" class="retryBtn"><img src="./images/icon-retry.svg" alt="retry" class="retrySpinner"> Retry</button>
+            </div>
+        </main>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
